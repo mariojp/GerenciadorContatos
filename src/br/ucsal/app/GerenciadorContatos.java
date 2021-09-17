@@ -1,5 +1,7 @@
 package br.ucsal.app;
 
+import br.ucsal.app.model.Contato;
+
 // public class GerenciadorContatos extends Object {
 public class GerenciadorContatos {
 

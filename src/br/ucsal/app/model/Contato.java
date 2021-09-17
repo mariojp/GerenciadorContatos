@@ -1,4 +1,4 @@
-package br.ucsal.app;
+package br.ucsal.app.model;
 
 /**
  * Esta classe representa um 
@@ -8,21 +8,19 @@ package br.ucsal.app;
  */
 public class Contato {
 
-	private String nome;
+	protected String nome;
 	private String email;
 	private String telefone;
 	
-	public Contato(String nome, String email, String telefone) {
+	
+	public Contato(String nome, String telefone, String email) {
 		this.nome = nome;
-		this.email = email;
 		this.telefone = telefone;
+		this.email = email;
 	}
 	
-	public Contato() {
-		this("","","");
-//		this.nome = "";
-//		this.email = "";
-//		this.telefone = "";
+	public Contato(String nome,String telefone) {
+		this(nome,telefone,"");
 	}
 	// void set + Nome do Atributo (Parametro Tipo do Atributo variavel) 
 	public void setNome(String nome){
