@@ -6,15 +6,25 @@ package br.ucsal.app.model;
  * @author mariojp
  *
  */
-public class Contato {
+public abstract class Contato {
 
-	protected String nome;
+	private String firstName;
+	private String lastName;
+
 	private String email;
 	private String telefone;
 	
-	
+	/**
+	 * Exemplo 
+	 * String nome = "Pedro Pereira";        0         1     2
+	 * String[] names = nome.split(" "); ["Pedro", "Pereira"];
+	 * @param nome
+	 * @param telefone
+	 * @param email
+	 */
+	//new Contato("Pedro","xxx","email")
 	public Contato(String nome, String telefone, String email) {
-		this.nome = nome;
+		this.setNome(nome);
 		this.telefone = telefone;
 		this.email = email;
 	}
@@ -24,12 +34,18 @@ public class Contato {
 	}
 	// void set + Nome do Atributo (Parametro Tipo do Atributo variavel) 
 	public void setNome(String nome){
-		this.nome = nome;
+		String[] names = nome.split(" ");
+		this.firstName = names[0];
+		if(names.length > 1) {
+			this.lastName = names[names.length-1];
+		}else {
+			this.lastName ="";
+		}
 	}
 	
 	// Tipo do Atributo get + Nome do Atributo
 	public String getNome() {
-		return this.nome;
+		return this.firstName+" "+lastName;
 	}
 	
 	public String getEmail() {
@@ -41,13 +57,13 @@ public class Contato {
 		this.email = email;
 	}
 	
+	
+	//Sobrecarga setTelefone(Long telefone)
 	public void setTelefone(Long telefone) {
 		this.setTelefone(telefone.toString());
 	}
 	
-//	if (condicao) {
-//		instrucao;
-//	}
+	//Sobrecarga setTelefone(String telefone)
 	public void setTelefone(String telefone) {
 		if( telefone.length() <= 9 ) {
 			this.telefone = telefone;
@@ -63,6 +79,26 @@ public class Contato {
 	public String toString() {
 		return "Nome :"+this.getNome()+" Telefone:"+this.getTelefone();
 	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	
+	public abstract void enviarEmail();
+
 	
 	
 }

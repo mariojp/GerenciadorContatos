@@ -1,6 +1,9 @@
 package br.ucsal.app;
 
 import br.ucsal.app.model.Contato;
+import br.ucsal.app.model.ContatoFamilia;
+import br.ucsal.app.model.ContatoTinder;
+import br.ucsal.app.model.ContatoTrabalho;
 
 // public class GerenciadorContatos extends Object {
 public class GerenciadorContatos {
@@ -50,11 +53,29 @@ public class GerenciadorContatos {
 				
 		for(int i = 0; i < this.quantidadeAmigos ; i++ ) {
 			Contato contato = this.meusAmigos[i];
-			if(contato.getNome().equals(byNome)) {
+			if(contato.getNome().contains(byNome)) {
 				return contato;
 			}
 		}
 		return null;
+	}
+	
+	
+	public void enviarEmail(String texto) {
+		for(int i = 0; i < this.quantidadeAmigos ; i++ ) {
+			Contato contato = this.meusAmigos[i];
+			//polimorfismo
+			contato.enviarEmail();
+			
+//			if(contato instanceof ContatoFamilia) {
+//				((ContatoFamilia)contato).enviarEmail();
+//			}else if (contato instanceof ContatoTrabalho){
+//				((ContatoTrabalho)contato).enviarEmail();
+//			}else {
+//				((ContatoTinder)contato).enviarEmail();
+//			}
+		}
+		
 	}
 	
 }

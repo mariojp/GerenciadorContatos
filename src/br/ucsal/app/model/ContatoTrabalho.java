@@ -19,6 +19,12 @@ public class ContatoTrabalho extends Contato {
 	}
 	
 	@Override
+	public void enviarEmail() {	
+		System.out.println("Prezado, "+(getLastName().isEmpty()?getFirstName():getLastName()));
+	}
+
+	
+	@Override
 	public String toString() {
 		return super.toString() +" Empresa: "+this.empresa;
 	}
