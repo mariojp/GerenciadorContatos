@@ -29,6 +29,7 @@ https://github.com/mariojp/GerenciadorContatos
 	4.2 Metodos Get
 - Encapsulamento
 - this
+- super
 5. Pacotes
 6. Modificadores de acesso
 7. Sobrecarga
@@ -37,8 +38,12 @@ https://github.com/mariojp/GerenciadorContatos
 10. Classes Abstratas
 10.1 Metodos abstratos
 11. Polimorfismo metodo enviarEmail();
-*. Interfaces
-*. Coleções
+12. Interfaces
+13. Coleções 
+a) List
+b) Set
+c) Map
+
 *. Excepions
 
 

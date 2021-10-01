@@ -24,11 +24,11 @@ public class Principal {
 		meuGC.adicionarContato(contato);
 		
 		// variavel Contato
-		Contato contato1 = new ContatoTrabalho("Pedro","+55 71 98888-8888", "google");
+		Contato contato1 = new ContatoTrabalho("Pedro Lucas","+55 71 98888-8888", "google");
 		contato1.setEmail("pedro@google.com");
 		meuGC.adicionarContato(contato1);
 		
-		Contato contato2 = new ContatoFamilia("Maria","+55 71 99999-8888");
+		Contato contato2 = new ContatoFamilia("Maria Sofia","+55 71 99999-8888");
 		contato2.setEmail("maria@email.com") ;
 
 		ContatoFamilia familia = (ContatoFamilia) contato2;
@@ -38,10 +38,10 @@ public class Principal {
 		
 		meuGC.adicionarContato(contato2);
 		
-		Contato x = meuGC.pesquisarContato("Pedro");
+		Contato x = meuGC.pesquisarContato("Pedro Lucas");
 		System.out.println(x);
 
-		x = meuGC.pesquisarContato("Maria");
+		x = meuGC.pesquisarContato("Maria Sofia");
 		System.out.println(x);
 
 		//nullPointerException x.telefone => null.telefone
@@ -53,9 +53,16 @@ public class Principal {
 		}
 		
 		
-		meuGC.adicionarContato(new ContatoTinder("APELIDO "," 1232132323"));
+		meuGC.adicionarContato(new ContatoTinder("APELIDO"," 1232132323"));
 		
 		meuGC.enviarEmail("Convite");
+		
+		meuGC.compartilhar("Maria");
+		
+		meuGC.compartilhar("APELIDO");
+		
+		System.out.println("LISTA");
+		meuGC.listar();
 		
 	}
 

@@ -29,4 +29,17 @@ public class ContatoTrabalho extends Contato {
 		return super.toString() +" Empresa: "+this.empresa;
 	}
 	
+	
+	@Override
+	public int compareTo(Object o) {
+		Contato outro = (Contato) o;
+		//0 igual
+		//- this < o
+		//+ this > o
+		int r = this.getNome().compareTo(outro.getNome());
+		if(r == 0) {
+			r = this.getEmail().compareTo(outro.getEmail());
+		}
+		return r;
+	}
 }

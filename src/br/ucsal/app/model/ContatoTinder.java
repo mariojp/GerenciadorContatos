@@ -1,6 +1,8 @@
 package br.ucsal.app.model;
 
-public class ContatoTinder extends Contato {
+import br.ucsal.app.Compartilhavel;
+
+public class ContatoTinder extends Contato implements Compartilhavel {
 
 	
 	private Boolean match = Boolean.FALSE;
@@ -31,6 +33,16 @@ public class ContatoTinder extends Contato {
 		}
 	}
 
-	
+	public Contato compartilhar() {
+		return this;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		Contato outro = (Contato) o;
+		String nomeContatoInstancia = this.getNome();
+		String nomeContatoParametro = outro.getNome();
+		return nomeContatoInstancia.compareTo(nomeContatoParametro);
+	}
 	
 }

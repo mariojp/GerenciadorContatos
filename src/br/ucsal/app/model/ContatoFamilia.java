@@ -29,5 +29,13 @@ public class ContatoFamilia extends Contato {
 		System.out.println("Olá "+getFirstName());
 	}
 
+	@Override
+	public int compareTo(Object o) {
+		return this.getNome().compareTo( ( (Contato) o).getNome()   );
+	}
+
+	
+ 
+
 
 }

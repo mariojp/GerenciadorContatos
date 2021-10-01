@@ -6,7 +6,7 @@ package br.ucsal.app.model;
  * @author mariojp
  *
  */
-public abstract class Contato {
+public abstract class Contato implements Comparable {
 
 	private String firstName;
 	private String lastName;
