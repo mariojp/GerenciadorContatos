@@ -1,6 +1,4 @@
-package br.ucsal.app;
-
-import br.ucsal.app.model.Contato;
+package br.ucsal.app.model;
 
 /**
  * 

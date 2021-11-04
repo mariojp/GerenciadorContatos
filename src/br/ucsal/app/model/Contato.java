@@ -1,5 +1,7 @@
 package br.ucsal.app.model;
 
+import br.ucsal.app.MinhaException;
+
 /**
  * Esta classe representa um 
  * Contato
@@ -8,6 +10,8 @@ package br.ucsal.app.model;
  */
 public abstract class Contato implements Comparable {
 
+	private Long id;
+	
 	private String firstName;
 	private String lastName;
 
@@ -21,25 +25,33 @@ public abstract class Contato implements Comparable {
 	 * @param nome
 	 * @param telefone
 	 * @param email
+	 * @throws Exception 
 	 */
 	//new Contato("Pedro","xxx","email")
-	public Contato(String nome, String telefone, String email) {
+	public Contato(String nome, String telefone, String email) throws Exception {
 		this.setNome(nome);
 		this.telefone = telefone;
 		this.email = email;
 	}
 	
-	public Contato(String nome,String telefone) {
+	public Contato(String nome,String telefone) throws Exception {
 		this(nome,telefone,"");
 	}
 	// void set + Nome do Atributo (Parametro Tipo do Atributo variavel) 
-	public void setNome(String nome){
-		String[] names = nome.split(" ");
-		this.firstName = names[0];
-		if(names.length > 1) {
-			this.lastName = names[names.length-1];
-		}else {
-			this.lastName ="";
+	public void setNome(String nome) throws MinhaException  {
+		try {
+			String[] names = nome.split(" ");
+			this.firstName = names[0];
+			if(this.firstName.length() < 3) {
+				throw new MinhaException("TAMANHO MENOR QUE 3");
+			}
+			if(names.length > 1) {
+				this.lastName = names[names.length-1];
+			}else {
+				this.lastName ="";
+			}
+		}catch (NullPointerException e) {
+			throw new MinhaException("Nome não pode ser nulo");
 		}
 	}
 	
@@ -96,8 +108,15 @@ public abstract class Contato implements Comparable {
 		this.lastName = lastName;
 	}
 	
-	
 	public abstract void enviarEmail();
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	
 	

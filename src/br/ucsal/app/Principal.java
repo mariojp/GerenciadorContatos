@@ -8,27 +8,57 @@ import br.ucsal.app.model.Contato;
 import br.ucsal.app.model.ContatoFamilia;
 import br.ucsal.app.model.ContatoTinder;
 import br.ucsal.app.model.ContatoTrabalho;
+import br.ucsal.app.persistencia.ContatoDAO;
+import br.ucsal.app.servico.GerenciadorContatos;
 
 public class Principal {
 
 	public static void main(String[] args) {
 		
 
-		GerenciadorContatos meuGC = new GerenciadorContatos();
+		GerenciadorContatos meuGC = new GerenciadorContatos(new ContatoDAO());
 		
-		
-		
-		Contato contato = new ContatoFamilia("Sergio Carlos","+55 71 98888-7777");
+		 try {
+			meuGC.adicionarContato(null,"+55 71 98888-7777");
+		} catch (Exception e1) {
+			System.out.println(e1.getMessage());
+		}
+
+		 try {
+			Contato c = new ContatoFamilia("a","+55 71 98888-7777");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		Contato contato = null;
+		try {
+			contato = new ContatoFamilia("Sergio Carlos","+55 71 98888-7777");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		meuGC.adicionarContato(contato);
 		
 		// variavel Contato
-		Contato contato1 = new ContatoTrabalho("Pedro Lucas","+55 71 98888-8888", "google");
+		Contato contato1 = null;
+		try {
+			contato1 = new ContatoTrabalho("Pedro Lucas","+55 71 98888-8888", "google");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			System.out.println(e1.getMessage());
+		}
 		contato1.setEmail("pedro@google.com");
 		meuGC.adicionarContato(contato1);
 		
-		Contato contato2 = new ContatoFamilia("Maria Sofia","+55 71 99999-8888");
+		Contato contato2 = null;
+		try {
+			contato2 = new ContatoFamilia("Maria Sofia","+55 71 99999-8888");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		contato2.setEmail("maria@email.com") ;
 
 		ContatoFamilia familia = (ContatoFamilia) contato2;
@@ -53,7 +83,12 @@ public class Principal {
 		}
 		
 		
-		meuGC.adicionarContato(new ContatoTinder("APELIDO"," 1232132323"));
+		try {
+			meuGC.adicionarContato(new ContatoTinder("APELIDO"," 1232132323"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		meuGC.enviarEmail("Convite");
 		

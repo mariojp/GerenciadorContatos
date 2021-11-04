@@ -1,13 +1,11 @@
 package br.ucsal.app.model;
 
-import br.ucsal.app.Compartilhavel;
-
 public class ContatoTinder extends Contato implements Compartilhavel {
 
 	
 	private Boolean match = Boolean.FALSE;
 	
-	public ContatoTinder(String nome, String telefone) {
+	public ContatoTinder(String nome, String telefone) throws Exception {
 		super(nome, telefone);
 	}
 

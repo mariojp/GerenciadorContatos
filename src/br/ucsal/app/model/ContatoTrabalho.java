@@ -4,7 +4,7 @@ public class ContatoTrabalho extends Contato {
 
 	private String empresa;
 	
-	public ContatoTrabalho(String nome, String telefone,String empresa) {
+	public ContatoTrabalho(String nome, String telefone,String empresa) throws Exception {
 		super(nome, telefone);
 		this.empresa = empresa;
 	}

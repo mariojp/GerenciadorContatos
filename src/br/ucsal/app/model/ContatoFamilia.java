@@ -6,7 +6,7 @@ public class ContatoFamilia extends Contato {
 	
 	private  String aniversario;
 	
-	public ContatoFamilia(String nome, String telefone) {
+	public ContatoFamilia(String nome, String telefone) throws Exception {
 		super(nome,telefone);
 	}
 
